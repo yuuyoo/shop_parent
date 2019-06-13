@@ -1,0 +1,20 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # 注册中心地址
+
+spring:
+  application:
+    name: UserProvider  #服务提供者名称
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/db_shop?serverTimezone=UTC&characterEncoding=UTF8
+    type: com.alibaba.druid.pool.DruidDataSource
+
+server:
+  port: 9901
+
+mybatis:
+  mapper-locations: classpath*:/mapper/*.xml
