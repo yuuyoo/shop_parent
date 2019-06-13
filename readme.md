@@ -86,7 +86,10 @@
 11. 项目计划进度文档
     
 ## 八、代码仓库地址
+[https://github.com/yuuyoo/shop_parent][仓库地址]
 
+[仓库地址]: https://github.com/yuuyoo/shop_parent
 	
 ## 联系作者
 Email: yuuyoo@163.com
+
