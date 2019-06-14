@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: duanjiliang
+    url: jdbc:mysql://localhost:3306/db_msg?serverTimezone=UTC&characterEncoding=UTF8
+    type: com.alibaba.druid.pool.DruidDataSource
+
+server:
+  port: 9903
+
+mybatis:
+  mapper-locations: classpath*:/mapping/*.xml # 指定mapping文件的路径
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

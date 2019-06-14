@@ -9,7 +9,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: root
+    password: duanjiliang
     url: jdbc:mysql://localhost:3306/db_shop?serverTimezone=UTC&characterEncoding=UTF8
     type: com.alibaba.druid.pool.DruidDataSource
 
@@ -17,4 +17,4 @@ server:
   port: 9901
 
 mybatis:
-  mapper-locations: classpath*:/mapper/*.xml
+  mapper-locations: classpath*:/mapping/*.xml

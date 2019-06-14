@@ -1,0 +1,18 @@
+package com.djl.common.message.core.dao;
+
+
+import com.djl.common.message.core.entity.MessageLog;
+
+public interface MessageLogMapper {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(MessageLog record);
+
+    int insertSelective(MessageLog record);
+
+    MessageLog selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(MessageLog record);
+
+    int updateByPrimaryKey(MessageLog record);
+}

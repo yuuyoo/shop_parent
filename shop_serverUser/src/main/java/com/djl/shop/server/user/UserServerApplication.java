@@ -1,5 +1,6 @@
 package com.djl.shop.server.user;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement    // 开启事务管理
 @EnableEurekaClient // 服务器提供者
+@MapperScan("com.djl.shop.server.User.dao") // 扫描mapper注解
 public class UserServerApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(UserServerApplication.class, args);

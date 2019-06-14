@@ -13,6 +13,7 @@
         <module>shop_payApi</module>
         <module>shop_esApi</module>
         <module>shop_serverLogin</module>
+        <module>shop_api</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -56,9 +57,13 @@
         <pagehelperboot.version>1.2.12</pagehelperboot.version>
         <!-- test单元测试的版本 -->
         <test.version>2.1.5.RELEASE</test.version>
-
+        <!-- JWt Json web token 版本 -->
+        <jwt.version>3.8.1</jwt.version>
+        <!-- JJWT是一个提供端到端的JWT创建和验证的Java库 版本 -->
+        <jjwt.version>0.9.1</jjwt.version>
     </properties>
 
+    <!-- 版本限定 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -147,6 +152,19 @@
                 <version>${test.version}</version>
                 <scope>test</scope>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
