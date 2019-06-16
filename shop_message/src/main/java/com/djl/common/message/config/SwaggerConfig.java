@@ -10,9 +10,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
- *@Author feri
- *@Date Created in 2019/6/3 14:45
- * Swagger设置
+ * 配置swagger
  */
 @Configuration //标记这是一个配置
 public class SwaggerConfig {
@@ -36,7 +34,7 @@ public class SwaggerConfig {
     @Bean//创建对象  修饰方法 方法的返回值必须是引用类型  对象存储在IOC容器
     public Docket createDocket(){
        Docket docket=new Docket(DocumentationType.SWAGGER_2).apiInfo(createA()).select().
-               apis(RequestHandlerSelectors.basePackage("com.qfedu.common.message.core.controller")).
+               apis(RequestHandlerSelectors.basePackage("com.djl.common.message.core.controller")).
                build();
        return docket;
     }

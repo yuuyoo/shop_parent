@@ -22,6 +22,9 @@ public class SmsUtil {
     public static final int DEF_READ_TIMEOUT = 30000;
     public static String userAgent =  "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36";
 
+
+
+
     //发送短信验证码
     public static boolean mobileQuery(String phone,int code){
         String result =null;

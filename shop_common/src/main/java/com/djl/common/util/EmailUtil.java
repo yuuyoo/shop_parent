@@ -42,7 +42,8 @@ public class EmailUtil {
 			Transport tran = session.getTransport();
 			//连接
 			tran.connect(myAccount, myPass);
-			//发送消息 
+			//发送消息
+			System.out.println("发件箱地址：" + myAccount);
 			tran.sendMessage(message, message.getAllRecipients());
 			//关闭
 			tran.close();

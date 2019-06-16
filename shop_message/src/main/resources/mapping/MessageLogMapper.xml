@@ -21,12 +21,16 @@
     delete from messagelog
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
+  <!-- 新增消息发送记录 -->
   <insert id="insert" parameterType="com.djl.common.message.core.entity.MessageLog">
-    insert into messagelog (id, mid, createtime, 
+    insert into messagelog (mid, createtime,
       ip, info)
-    values (#{id,jdbcType=BIGINT}, #{mid,jdbcType=BIGINT}, #{createtime,jdbcType=TIMESTAMP}, 
+    values (#{mid,jdbcType=BIGINT}, now(),
       #{ip,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR})
   </insert>
+
+
   <insert id="insertSelective" parameterType="com.djl.common.message.core.entity.MessageLog">
     insert into messagelog
     <trim prefix="(" suffix=")" suffixOverrides=",">

@@ -20,12 +20,16 @@
     delete from msgreceive
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
+  <!-- 新增接收记录 -->
   <insert id="insert" parameterType="com.djl.common.message.core.entity.MsgReceive">
-    insert into msgreceive (id, no, createtime, 
+    insert into msgreceive (no, createtime,
       flag)
-    values (#{id,jdbcType=BIGINT}, #{no,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+    values (#{no,jdbcType=VARCHAR}, now(),
       #{flag,jdbcType=INTEGER})
   </insert>
+
+
   <insert id="insertSelective" parameterType="com.djl.common.message.core.entity.MsgReceive">
     insert into msgreceive
     <trim prefix="(" suffix=")" suffixOverrides=",">

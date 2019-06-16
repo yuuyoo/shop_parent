@@ -23,14 +23,23 @@
     delete from message
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.djl.common.message.core.entity.Message">
-    insert into message (id, pcode, type, 
+
+  <!-- 新增消息发送 -->
+  <insert id="insert" parameterType="com.djl.common.message.core.entity.Message" useGeneratedKeys="true" keyProperty="id">
+    insert into message (pcode, type,
       title, content, receive, 
       flag)
-    values (#{id,jdbcType=BIGINT}, #{pcode,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+    values (#{pcode,jdbcType=INTEGER}, #{type,jdbcType=INTEGER},
       #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{receive,jdbcType=VARCHAR}, 
       #{flag,jdbcType=INTEGER})
   </insert>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from message
+  </select>
+
   <insert id="insertSelective" parameterType="com.djl.common.message.core.entity.Message">
     insert into message
     <trim prefix="(" suffix=")" suffixOverrides=",">

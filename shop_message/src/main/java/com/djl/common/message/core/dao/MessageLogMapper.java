@@ -6,6 +6,11 @@ import com.djl.common.message.core.entity.MessageLog;
 public interface MessageLogMapper {
     int deleteByPrimaryKey(Long id);
 
+    /**
+     * 发送消息日志
+     * @param record
+     * @return
+     */
     int insert(MessageLog record);
 
     int insertSelective(MessageLog record);

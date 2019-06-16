@@ -2,9 +2,9 @@ package com.djl.common.model;
 
 import lombok.Data;
 
+
 /**
- *@Author feri
- *@Date Created in 2019/6/13 11:20
+ * 验证码对象
  */
 @Data
 public class ActiveCode {
