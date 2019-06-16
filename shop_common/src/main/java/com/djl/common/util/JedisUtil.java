@@ -897,6 +897,12 @@ public class JedisUtil {
             Jedis jedis = getJedis();
             return jedis.type(key);
         }
+
+        public Long ttl(String key) {
+            Jedis jedis = getJedis();
+            return jedis.ttl(key);
+        }
+
         /**
          * 关闭连接*/
         private void close(Jedis jedis) {

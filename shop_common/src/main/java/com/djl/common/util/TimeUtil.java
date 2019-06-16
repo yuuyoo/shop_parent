@@ -42,4 +42,11 @@ public class TimeUtil {
         }
         return 0;
     }
+
+    // 获取指定分钟之后的日期
+    public static Date getMinutes(int minutes) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MINUTE, minutes);
+        return calendar.getTime();
+    }
 }

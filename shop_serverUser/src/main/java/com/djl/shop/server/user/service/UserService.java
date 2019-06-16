@@ -28,7 +28,7 @@ public interface UserService {
 
     /**
      * 检查手机号是否存在
-     * @param phone
+     * @param phone 手机号
      * @return
      */
     R checkPhone(String phone);
