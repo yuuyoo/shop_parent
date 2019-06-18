@@ -1,4 +1,4 @@
-package com.djl.shop.server.login.model;
+package com.djl.common.model;
 
 import lombok.Data;
 

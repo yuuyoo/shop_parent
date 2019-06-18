@@ -27,6 +27,13 @@
     values (#{uid,jdbcType=INTEGER}, #{totalscore,jdbcType=INTEGER},
     #{currscore,jdbcType=INTEGER})
   </insert>
+
+  <!-- 更新用户积分记录表 -->
+  <update id="update">
+    update userpoints set totalscore=totalscore + #{score}, currscore=currscore + #{score}
+    where uid=#{uid}
+  </update>
+
   <insert id="insertSelective" parameterType="com.djl.shop.entity.UserPoints">
     insert into userpoints
     <trim prefix="(" suffix=")" suffixOverrides=",">

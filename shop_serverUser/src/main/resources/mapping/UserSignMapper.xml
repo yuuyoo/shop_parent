@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djl.shop.server.user.dao.UserSignMapper">
+  <resultMap id="BaseResultMap" type="com.djl.shop.entity.UserSign">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="extrascore" jdbcType="INTEGER" property="extrascore" />
+    <result column="days" jdbcType="INTEGER" property="days" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, score, extrascore, days, createtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from usersign
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from usersign
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <!-- 新增签到记录 -->
+  <insert id="insert" parameterType="com.djl.shop.entity.UserSign">
+    insert into usersign (uid, score, extrascore, days, createtime)
+    values (#{uid,jdbcType=INTEGER}, #{score,jdbcType=INTEGER},
+      #{extrascore,jdbcType=INTEGER}, #{days,jdbcType=INTEGER}, now()
+      )
+  </insert>
+
+    <!-- 根据用户id查询签到记录 -->
+    <select id="selectByUid" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from usersign
+        where uid = #{uid}
+    </select>
+
+    <!-- 根据用户id查询最近一次的签到记录 -->
+    <select id="selectByUidLast" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from usersign
+        where uid = #{uid} order by createtime desc limit 1
+    </select>
+
+    <!-- 根据用户id查询最近指定天数内的签到记录 -->
+    <select id="selectByUidDays" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from usersign
+        where uid = #{uid}
+        and to_days(now()) - to_days(createtime) &lt;= #{days}
+    </select>
+
+  <insert id="insertSelective" parameterType="com.djl.shop.entity.UserSign">
+    insert into usersign
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="extrascore != null">
+        extrascore,
+      </if>
+      <if test="days != null">
+        days,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="extrascore != null">
+        #{extrascore,jdbcType=INTEGER},
+      </if>
+      <if test="days != null">
+        #{days,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.djl.shop.entity.UserSign">
+    update usersign
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="extrascore != null">
+        extrascore = #{extrascore,jdbcType=INTEGER},
+      </if>
+      <if test="days != null">
+        days = #{days,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.djl.shop.entity.UserSign">
+    update usersign
+    set uid = #{uid,jdbcType=INTEGER},
+      score = #{score,jdbcType=INTEGER},
+      extrascore = #{extrascore,jdbcType=INTEGER},
+      days = #{days,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

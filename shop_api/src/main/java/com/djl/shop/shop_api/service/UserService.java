@@ -23,4 +23,16 @@ public interface UserService {
 
     @GetMapping("/user/check.do")
     R checkByPhone(@RequestParam("phone") String phone);
+
+    @PostMapping("/user/sign.do")
+    R saveSign(@RequestParam("token") String token);
+
+    @GetMapping("/user/signList.do")
+    R findSignByUid(@RequestParam("token") String token);
+
+    @GetMapping("/user/lastSign.do")
+    R findSignByUidLast(@RequestParam("token") String token);
+
+    @GetMapping("/user/daysSign.do")
+    R findSignByUidDays(@RequestParam("token") String token, @RequestParam("days") Integer days);
 }

@@ -6,8 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- *@Author feri
- *@Date Created in 2019/6/12 16:32
+ * 时间工具类
  */
 public class TimeUtil {
     public static String getTime(){
@@ -48,5 +47,16 @@ public class TimeUtil {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, minutes);
         return calendar.getTime();
+    }
+
+    //获取当前距离指定日期的天数
+    public static int getDistanceDays(Date date){
+        Calendar calendar=Calendar.getInstance();
+        return (int)(calendar.getTime().getTime()/1000/24/3600-date.getTime()/1000/24/3600);
+    }
+
+    // 返回格式化的日期
+    public static String getFormat(Date date){
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
     }
 }
