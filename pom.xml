@@ -15,6 +15,7 @@
         <module>shop_serverLogin</module>
         <module>shop_api</module>
         <module>shop_loginApi</module>
+        <module>shop_serverGoods</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -62,6 +63,10 @@
         <jwt.version>3.8.1</jwt.version>
         <!-- JJWT是一个提供端到端的JWT创建和验证的Java库 版本 -->
         <jjwt.version>0.9.1</jjwt.version>
+        <data-es.version>2.1.5.RELEASE</data-es.version>
+        <es.version>3.1.8.RELEASE</es.version>
+        <tranport.version>6.2.2</tranport.version>
+
     </properties>
 
     <!-- 版本限定 -->
@@ -165,6 +170,25 @@
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-elasticsearch -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <version>${data-es.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-elasticsearch -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-elasticsearch</artifactId>
+                <version>${es.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/transport -->
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>transport</artifactId>
+                <version>${tranport.version}</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>
