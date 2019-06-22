@@ -4,4 +4,4 @@ spring:
       cluster-name: qfjava
       cluster-nodes: 39.105.189.141:9300
 server:
-  port: 9804
+  port: 9805

@@ -16,6 +16,7 @@
         <module>shop_api</module>
         <module>shop_loginApi</module>
         <module>shop_serverGoods</module>
+        <module>shop_resourceApi</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
