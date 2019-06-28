@@ -64,9 +64,14 @@
         <jwt.version>3.8.1</jwt.version>
         <!-- JJWT是一个提供端到端的JWT创建和验证的Java库 版本 -->
         <jjwt.version>0.9.1</jjwt.version>
-        <data-es.version>2.1.5.RELEASE</data-es.version>
+        <!-- spring data elasticsearch 版本 -->
         <es.version>3.1.8.RELEASE</es.version>
+        <!-- 连接elasticsearch集群的远程工具 -->
         <tranport.version>6.2.2</tranport.version>
+        <!-- xml解析 -->
+        <jdom.version>1.1</jdom.version>
+        <!-- google二维码生成工具 -->
+        <zxing.version>3.3.2</zxing.version>
 
     </properties>
 
@@ -171,12 +176,7 @@
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-elasticsearch -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-                <version>${data-es.version}</version>
-            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-elasticsearch -->
             <dependency>
                 <groupId>org.springframework.data</groupId>
@@ -189,8 +189,16 @@
                 <artifactId>transport</artifactId>
                 <version>${tranport.version}</version>
             </dependency>
-
-
+            <dependency>
+                <groupId>org.jdom</groupId>
+                <artifactId>jdom</artifactId>
+                <version>${jdom.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
